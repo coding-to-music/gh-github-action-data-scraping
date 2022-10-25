@@ -1,10 +1,38 @@
+# gh-github-action-data-scraping
+
+# 🚀 Shows how to use github actions to do automated data scraping 🚀
+
+https://github.com/coding-to-music/gh-github-action-data-scraping
+
+From / By https://github.com/sw-yx/gh-action-data-scraping
+
+https://www.swyx.io/github-scraping
+
+## Environment variables:
+
+```java
+
+```
+
+## GitHub
+
+```java
+git init
+git add .
+git remote remove origin
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:coding-to-music/gh-github-action-data-scraping.git
+git push -u origin main
+```
+
 # gh-action-data-scraping
 
 this repo shows how to use github actions to do automated data scraping, with storage in git itself! **free git storage and scheduled updates!!!**
 
 ## 2021 Update
 
-You can read more in the [Blog Writeup](https://www.swyx.io/github-scraping/). 
+You can read more in the [Blog Writeup](https://www.swyx.io/github-scraping/).
 
 As of May 2021, [Flat Data scraping](https://octo.github.com/projects/flat-data) is officially supported by GitHub, check them out.
 
@@ -21,32 +49,30 @@ The script looks like:
 # /.github/workflows/daily.yml
 on:
   schedule:
-    - cron:  '0 8 * * *' # every day at 8am
+    - cron: "0 8 * * *" # every day at 8am
 name: Pull Data and Build
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Build
-      run: npm install
-    - name: Scrape
-      run: npm run action 
-      # env:
-      #   WHATEVER_TOKEN: ${{ secrets.YOU_WANT }}
-    - uses: mikeal/publish-to-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub sets this for you
+      - uses: actions/checkout@master
+      - name: Build
+        run: npm install
+      - name: Scrape
+        run: npm run action
+        # env:
+        #   WHATEVER_TOKEN: ${{ secrets.YOU_WANT }}
+      - uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub sets this for you
 ```
+
 ## How it should look
 
 For people new to GH actions, this is how my Actions tab of this very repo looks if you need a reference point:
 
-
 ![image](https://user-images.githubusercontent.com/6764957/72847135-efc62c80-3c6f-11ea-88d8-2a2545a292e7.png)
-
-
 
 ## Limits
 
@@ -66,10 +92,9 @@ In addition to these limits, GitHub Actions should not be used for:
 - Cryptomining
 - Serverless computing
 - Activity that compromises GitHub users or GitHub services.
-- Any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used. In other words, be cool, don’t use GitHub Actions in ways you know you shouldn’t. 
+- Any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used. In other words, be cool, don’t use GitHub Actions in ways you know you shouldn’t.
 
 Be a good citizen, **don't abuse it and F this up for the rest of us**!
-
 
 ## This is heavily based on
 
